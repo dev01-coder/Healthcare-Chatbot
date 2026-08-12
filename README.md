@@ -6,6 +6,8 @@ built to run on a laptop with limited resources (30GB space, 64-bit).
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+![MediAssist UI](screenshot.png)
+
 > **Designed & Developed by Ozair Ilyas**
 
 ---

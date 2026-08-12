@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body,
+  .dark {
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  ::selection {
+    background: rgba(14, 165, 233, 0.25);
+  }
+
+  .dark ::selection {
+    background: rgba(14, 165, 233, 0.35);
+  }
+}
+
+/* ── Scrollbar ────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* ── Markdown prose ───────────────────────── */
+.prose {
+  --tw-prose-body: #334155;
+  --tw-prose-headings: #1e293b;
+  --tw-prose-bold: #1e293b;
+  --tw-prose-links: #0284c7;
+  --tw-prose-lists: #475569;
+  --tw-prose-code: #0284c7;
+  --tw-prose-quotes: #64748b;
+  --tw-prose-quote-borders: #0ea5e9;
+  --tw-prose-bullets: #94a3b8;
+}
+
+.dark .prose {
+  --tw-prose-body: #cbd5e1;
+  --tw-prose-headings: #f1f5f9;
+  --tw-prose-bold: #f1f5f9;
+  --tw-prose-links: #38bdf8;
+  --tw-prose-lists: #94a3b8;
+  --tw-prose-code: #38bdf8;
+  --tw-prose-quotes: #94a3b8;
+  --tw-prose-quote-borders: #0ea5e9;
+  --tw-prose-bullets: #64748b;
+}
+
+.prose p {
+  margin: 0.4rem 0;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  margin: 0.4rem 0;
+}
+
+.prose li {
+  margin: 0.15rem 0;
+}
+
+.prose li::marker {
+  color: #94a3b8;
+}
+
+.dark .prose li::marker {
+  color: #475569;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 600;
+  margin: 0.75rem 0 0.35rem;
+}
+
+.prose h1 { font-size: 1.15rem; }
+.prose h2 { font-size: 1.05rem; }
+.prose h3 { font-size: 0.95rem; }
+
+.prose code {
+  background: rgba(14, 165, 233, 0.08);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.dark .prose code {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.prose code::before,
+.prose code::after {
+  content: '' !important;
+}
+
+.prose blockquote {
+  border-left: 3px solid #0ea5e9;
+  padding-left: 0.75rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Typing cursor ────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '\258b';
+  animation: blink 0.7s step-start infinite;
+  font-size: 0.85em;
+  color: #0284c7;
+  margin-left: 1px;
+  font-weight: 400;
+}
+
+.dark .typing-cursor::after {
+  color: #38bdf8;
+}
+
+/* ── Toast animation ──────────────────────── */
+@keyframes toastIn {
+  0% { opacity: 0; transform: translateX(100%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes toastOut {
+  0% { opacity: 1; transform: translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateX(100%) scale(0.95); }
+}
+
+.toast-enter {
+  animation: toastIn 0.3s ease-out forwards;
+}
+
+.toast-exit {
+  animation: toastOut 0.25s ease-in forwards;
+}
+
+/* ── Message hover actions ────────────────── */
+.message-actions {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.group:hover .message-actions,
+.message-actions:focus-within {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Emergency pulse ──────────────────────── */
+@keyframes emergencyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+
+.emergency-pulse {
+  animation: emergencyPulse 2s ease-in-out infinite;
+}
+
+/* ── Focus visible ────────────────────────── */
+:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Stagger animation delay utility ──────── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+
+/* ── Glassmorphism ────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-strong {
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Float animation ─────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Electric glow pulse ─────────────────── */
+@keyframes electricGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(20, 184, 166, 0.2), 0 0 10px rgba(20, 184, 166, 0.1); }
+  50% { box-shadow: 0 0 15px rgba(20, 184, 166, 0.4), 0 0 30px rgba(20, 184, 166, 0.15); }
+}
+
+.animate-electric-glow {
+  animation: electricGlow 2.5s ease-in-out infinite;
+}

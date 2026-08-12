@@ -1,0 +1,46 @@
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ── Virtual Environment ──────────────────────
+venv/
+.venv/
+env/
+
+# ── Environment Variables ────────────────────
+.env
+frontend/.env
+
+# ── Data (large, generated) ──────────────────
+data/raw/
+data/processed/
+data/chroma_db/
+data/test_chroma/
+scripts/data/
+
+# ── Node.js ──────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── IDE / Editor ─────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── OS ───────────────────────────────────────
+desktop.ini
+*.log
+
+# ── SQLite ───────────────────────────────────
+*.sqlite3

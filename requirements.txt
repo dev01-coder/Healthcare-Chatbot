@@ -1,0 +1,26 @@
+# ── Core RAG ────────────────────────────────
+chromadb>=1.5.0
+rank-bm25>=0.2.2
+
+# ── FREE LLM Providers ──────────────────────
+groq>=0.9.0
+google-generativeai>=0.7.2
+ollama>=0.3.3
+
+# ── Paid fallback (optional) ─────────────────
+anthropic>=0.34.0
+
+# ── Backend API ──────────────────────────────
+fastapi>=0.112.0
+uvicorn>=0.30.6
+python-multipart>=0.0.9
+python-dotenv>=1.0.1
+
+# ── Data processing ──────────────────────────
+requests>=2.32.3
+tqdm>=4.66.5
+datasets>=2.14.0
+
+# ── Testing ──────────────────────────────────
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

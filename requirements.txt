@@ -1,5 +1,5 @@
 # ── Core RAG ────────────────────────────────
-chromadb>=1.5.0
+chromadb>=0.4.0
 rank-bm25>=0.2.2
 
 # ── FREE LLM Providers ──────────────────────

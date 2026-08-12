@@ -2,6 +2,7 @@
 
 import sys
 import os
+import pytest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from fastapi.testclient import TestClient
@@ -25,6 +26,10 @@ def test_health():
     assert "status" in data
 
 
+@pytest.mark.skipif(
+    not __import__("importlib").util.find_spec("chromadb"),
+    reason="chromadb not installed"
+)
 def test_stats():
     response = client.get("/stats")
     assert response.status_code == 200
